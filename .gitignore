@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 2D_games_browser/Library/
 2D_games_browser/Temp/
+2D_games_browser/.idea/
+2D_games_browser/obj/Debug/
+2D_games_browser/Logs/
