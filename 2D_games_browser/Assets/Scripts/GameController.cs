@@ -1,21 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Controller;
-using Datas;
+using Data;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Data _data;
+    [SerializeField] private GameData _data;
     private Controllers _controllers;
     private void Start()
+    {
+
+    }
+
+    private void Awake()
     {
         _controllers = new Controllers();
         new GameInitialization(_controllers, _data);
         _controllers.Initialization();
+        _controllers.AwakeExecute();
     }
-
     private void Update()
     {
         var deltaTime = Time.deltaTime;
@@ -26,6 +28,10 @@ public class GameController : MonoBehaviour
     {
         var deltaTime = Time.deltaTime;
         _controllers.LateExecute(deltaTime);
+    }
+    private void FixedUpdate()
+    {
+        _controllers.FixedExecute();
     }
 
     private void OnDestroy()
