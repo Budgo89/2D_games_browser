@@ -11,7 +11,7 @@ namespace Configs
         Jump = 1,
         Run = 2
     }
-    [CreateAssetMenu(fileName = "SpriteAnimationsConfig", menuName = "Scripts/Configs/SpriteAnimationsConfig",
+    [CreateAssetMenu(fileName = "SpriteAnimationsConfig", menuName = "GameData/SpriteAnimationsConfig",
         order = 1)]
     public class SpriteAnimationsConfig : ScriptableObject
     {

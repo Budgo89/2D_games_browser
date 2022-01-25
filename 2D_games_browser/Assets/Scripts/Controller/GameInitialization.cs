@@ -10,10 +10,9 @@ namespace Controller
         public GameInitialization(Controllers controllers, GameData gameData)
         {
             var playerInitializer = new PlayerInitializer(gameData);
-            
             var playerController = new PlayerController(playerInitializer);
-            var inputController = new InputController(gameData);
             var spriteAnimator = new SpriteAnimator(gameData.SpriteAnimationsConfig, gameData);
+            var inputController = new InputController(gameData, spriteAnimator);
             controllers.Add(playerController);
             controllers.Add(inputController);
             controllers.Add(spriteAnimator);

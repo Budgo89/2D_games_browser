@@ -12,7 +12,9 @@ namespace Assets.Scripts.Initializer
         public PlayerInitializer(GameData gameData)
         {
             var playerPrefab = gameData.PlayerData.PlayerPrefab;
+
             _player = Object.Instantiate(playerPrefab);
+            _player.isStatic=false;
         }
     }
 }

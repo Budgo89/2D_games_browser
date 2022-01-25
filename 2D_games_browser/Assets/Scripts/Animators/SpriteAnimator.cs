@@ -113,7 +113,7 @@ namespace Animators
         public void AwakeExecute()
         {
             //SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
-            StartAnimation(_spriteRenderer, Track.Idle, true, 10);
+            //StartAnimation(_spriteRenderer, Track.Idle, true, 10);
         }
     }
 }
