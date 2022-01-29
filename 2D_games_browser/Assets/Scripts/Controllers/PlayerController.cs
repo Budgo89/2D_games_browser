@@ -14,7 +14,7 @@ namespace  PlatformerMVC.Configs
         private bool _isJump;
         private bool _isMoving;
 
-        private float _speed = 30f;
+        private float _speed = 200f;
         private float _animationSpeed = 10f;
         private float _jumpSpeed = 9;
         private float _movingThreshHold = .1f;
@@ -37,14 +37,14 @@ namespace  PlatformerMVC.Configs
             _playerView = player;
             _animator = animator;
             _animator.StartAnimation(_playerView.SpriteRenderer, AnimStatePlayer.Idle, true, _animationSpeed);
-            _contactPooler = new ContactPooler(_playerView._collider2D);
+            _contactPooler = new ContactPooler(_playerView.Collider2D);
         }
         
 
         public void MoveTowards()
         {
             _xVelocity = Time.fixedDeltaTime * _speed * (_xAxisInput < 0 ? -1 : 1);
-            _playerView._rigidbody2D.velocity = _playerView._rigidbody2D.velocity.Change(x: _xVelocity);
+            _playerView.Rigidbody2D.velocity = _playerView.Rigidbody2D.velocity.Change(x: _xVelocity);
             _playerView.transform.localScale = (_xAxisInput < 0 ? _leftScale: _rightScale);
             
         }
@@ -63,13 +63,13 @@ namespace  PlatformerMVC.Configs
             {
                 _animator.StartAnimation
                     (_playerView.SpriteRenderer, _isMoving? AnimStatePlayer.Run: AnimStatePlayer.Idle, true, _animationSpeed);
-                if (_isJump && Mathf.Abs(_playerView._rigidbody2D.velocity.y) <= _jumpThreshHold)
+                if (_isJump && Mathf.Abs(_playerView.Rigidbody2D.velocity.y) <= _jumpThreshHold)
                 {
-                    _playerView._rigidbody2D.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
+                    _playerView.Rigidbody2D.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
                 } 
             } else
             {
-                if ((_isJump && Mathf.Abs(_playerView._rigidbody2D.velocity.y) >= _jumpThreshHold))
+                if ((_isJump && Mathf.Abs(_playerView.Rigidbody2D.velocity.y) >= _jumpThreshHold))
                 {
                     _animator.StartAnimation
                         (_playerView.SpriteRenderer, AnimStatePlayer.Jump, true, _animationSpeed);
