@@ -15,8 +15,18 @@ namespace Data
 
         public GameObject PlayerPrefab => _playerPrefabPath;
         public float Speed => _speed;
-        public Transform Transform => _transform;
-        public SpriteRenderer SprirteRenderer => _spriteRenderer;
+        public Transform Transform
+        {
+            get => _transform;
+            set => _transform = value;
+        }
+
+        public SpriteRenderer SprirteRenderer
+        {
+            get => _spriteRenderer;
+            set => _spriteRenderer = value;
+        }
+
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
         public Collider2D Collider2D => _collider2D;
     }
