@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.Controllers;
 using PlatformerMVC.Configs;
 using PlatformerMVC.Controllers;
 using PlatformerMVC.View;
@@ -15,13 +14,14 @@ namespace PlatformerMVC
         [SerializeField] private SpriteAnimatorConfig _playerAnimatorConfig;
         [SerializeField] private int _animationSpeed;
         [SerializeField] private LevelObjectView _playerView;
-        [SerializeField] private Camera _camera;
-        [SerializeField] private GameObject _fon;
+        [SerializeField] private CanonView _canonView;
 
         private SpriteAnimatorController _playerAnimator;
         private CameraController _cameraController;
         private PlayerController _playerController;
-        private ParalaxManager _paralaxManager;
+        private CanonAimController _canonAimController;
+        private BulletEmitterController _bulletEmitterController; //The intialization of BulletController we make here
+        
 
         private void Start()
         {
@@ -31,16 +31,19 @@ namespace PlatformerMVC
                 _playerAnimator = new SpriteAnimatorController(_playerAnimatorConfig);
             }
 
-            _cameraController = new CameraController(_playerView.PlayerTransform, Camera.main.transform);
+            _cameraController = new CameraController(_playerView._Transform, Camera.main.transform);
             _playerController = new PlayerController(_playerView, _playerAnimator);
-            _paralaxManager = new ParalaxManager(_camera.transform, _fon.transform);
+
+            _canonAimController = new CanonAimController(_canonView._muzzleTransform, _playerView._Transform);
+            _bulletEmitterController = new BulletEmitterController(_canonView._bullets, _canonView._emitterTransform);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             _playerController.Update();
             _cameraController.Update();
-            _paralaxManager.Update();
+            _canonAimController.Update();
+            _bulletEmitterController.Update();
         }
     }
 }
