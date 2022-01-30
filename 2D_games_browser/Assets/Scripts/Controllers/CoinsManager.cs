@@ -32,7 +32,6 @@ namespace PlatformerMVC.Controllers
             if (_coinViews.Contains(contactView))
             {
                 _spriteAnimator.StopAnimation(contactView.SpriteRenderer);
-                //GameObject.Destroy(contactView.gameObject);
                 contactView.gameObject.SetActive(false);
             }
         }

@@ -55,10 +55,6 @@ namespace PlatformerMVC.Controllers
             foreach (var animation in _activeAnimation)
             {
                 animation.Value.Update();
-                if (_activeAnimation == null)
-                {
-                    return;
-                }
                 if (animation.Value.Counter < animation.Value.Sprites.Count)
                 {
                      animation.Key.sprite = animation.Value.Sprites[(int)animation.Value.Counter];
