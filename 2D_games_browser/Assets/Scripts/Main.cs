@@ -48,7 +48,7 @@ namespace PlatformerMVC
             }
             _cameraController = new CameraController(_playerView.Transform, Camera.main.transform);
             _playerController = new PlayerController(_playerView, _playerAnimator);
-            _coinController = new CoinController(_coin,_coinAnimator);
+            _coinController = new CoinController(_coinViews, _coinAnimator);
             _canonAimController = new CanonAimController(_canonView.MuzzleTransform, _playerView.Transform);
             _bulletEmitterController = new BulletEmitterController(_canonView.Bullets, _canonView.EmitterTransform, _canonView.Shootingstation);
             _coinsManager = new CoinsManager(_playerView, _coinViews, _playerAnimator);
