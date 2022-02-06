@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Controllers;
+using Assets.Scripts.View;
+using Pathfinding;
 using PlatformerMVC.Configs;
 using PlatformerMVC.Controllers;
 using PlatformerMVC.View;
@@ -21,6 +24,8 @@ namespace PlatformerMVC
         [SerializeField] private List<LevelObjectView> _deathZones;
         [SerializeField] private List<LevelObjectView> _winZones;
         [SerializeField] private Vector3 _startPosition;
+        [SerializeField] private List<LiftViews> _liftViews;
+        [SerializeField] private List<LevelObjectView> _turnTriggers;
 
         private SpriteAnimatorController _playerAnimator;
         private SpriteAnimatorController _coinAnimator;
@@ -31,6 +36,8 @@ namespace PlatformerMVC
         private BulletEmitterController _bulletEmitterController; //The intialization of BulletController we make here
         private CoinsManager _coinsManager;
         private LevelCompleteManager _levelCompleteManager;
+        private LiftsManager _listManager;
+        private Patrol _patrol;
 
 
         private void Start()
@@ -53,6 +60,7 @@ namespace PlatformerMVC
             _bulletEmitterController = new BulletEmitterController(_canonView.Bullets, _canonView.EmitterTransform, _canonView.Shootingstation);
             _coinsManager = new CoinsManager(_playerView, _coinViews, _playerAnimator);
             _levelCompleteManager = new LevelCompleteManager(_playerView, _deathZones, _winZones, _startPosition);
+            _listManager = new LiftsManager(_liftViews, _turnTriggers);
         }
 
         private void LateUpdate()
