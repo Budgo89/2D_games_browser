@@ -26,6 +26,7 @@ namespace PlatformerMVC
         [SerializeField] private Vector3 _startPosition;
         [SerializeField] private List<LiftViews> _liftViews;
         [SerializeField] private List<LevelObjectView> _turnTriggers;
+        [SerializeField] private GenerateLevelView _generateLevelView;
 
         private SpriteAnimatorController _playerAnimator;
         private SpriteAnimatorController _coinAnimator;
@@ -38,6 +39,8 @@ namespace PlatformerMVC
         private LevelCompleteManager _levelCompleteManager;
         private LiftsManager _listManager;
         private Patrol _patrol;
+        private GeneratorLevelController _generatorLevelController;
+
 
 
         private void Start()
@@ -61,6 +64,9 @@ namespace PlatformerMVC
             _coinsManager = new CoinsManager(_playerView, _coinViews, _playerAnimator);
             _levelCompleteManager = new LevelCompleteManager(_playerView, _deathZones, _winZones, _startPosition);
             _listManager = new LiftsManager(_liftViews, _turnTriggers);
+            _generatorLevelController = new GeneratorLevelController(_generateLevelView);
+            _generatorLevelController.Awake();
+
         }
 
         private void LateUpdate()
