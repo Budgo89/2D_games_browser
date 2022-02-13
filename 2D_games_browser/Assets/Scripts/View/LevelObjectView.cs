@@ -23,6 +23,6 @@ namespace PlatformerMVC.View
             var levelObject = collider.gameObject.GetComponent<LevelObjectView>();
             OnLevelObjectContact?.Invoke(levelObject);
         }
-
+        
     }
 }

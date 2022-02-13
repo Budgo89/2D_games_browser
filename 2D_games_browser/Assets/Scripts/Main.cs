@@ -64,8 +64,8 @@ namespace PlatformerMVC
             _coinsManager = new CoinsManager(_playerView, _coinViews, _playerAnimator);
             _levelCompleteManager = new LevelCompleteManager(_playerView, _deathZones, _winZones, _startPosition);
             _listManager = new LiftsManager(_liftViews, _turnTriggers);
-            _generatorLevelController = new GeneratorLevelController(_generateLevelView);
-            _generatorLevelController.Awake();
+            //_generatorLevelController = new GeneratorLevelController(_generateLevelView);
+            //_generatorLevelController.Awake();
 
         }
 
