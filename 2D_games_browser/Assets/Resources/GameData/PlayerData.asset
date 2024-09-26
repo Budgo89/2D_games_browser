@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5224a9a6dc0c604b883741cc5776f7b, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _playerPrefabPath: {fileID: 2944426431920224457, guid: 386d27f28670a814fbae485cfccddd14, type: 3}
+  _transform: {fileID: 3300667347376276505, guid: 386d27f28670a814fbae485cfccddd14, type: 3}
+  _spriteRenderer: {fileID: 3974490700046301799, guid: 386d27f28670a814fbae485cfccddd14, type: 3}
+  _rigidbody2D: {fileID: 5478699481079036270, guid: 386d27f28670a814fbae485cfccddd14, type: 3}
+  _collider2D: {fileID: 7257185705854506327, guid: 386d27f28670a814fbae485cfccddd14, type: 3}
